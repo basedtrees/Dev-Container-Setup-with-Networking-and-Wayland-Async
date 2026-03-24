@@ -1,0 +1,18 @@
+```gitattributes
+# =============================================================================
+# GitHub Linguist overrides – Force 100% C language statistics
+# =============================================================================
+
+# Exclude everything inside .devcontainer/ (Dockerfile + devcontainer.json)
+.devcontainer/**               linguist-vendored
+
+# Explicitly exclude the Dockerfile (in case it's referenced elsewhere)
+**/Dockerfile                  linguist-vendored
+Dockerfile                     linguist-vendored
+
+# Exclude config and documentation files
+*.json                         linguist-vendored
+README.md                      linguist-documentation
+.gitattributes                 linguist-vendored
+# Make sure all .c files are recognized as C (just in case)
+*.c                            linguist-language=C
