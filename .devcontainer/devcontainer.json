@@ -1,0 +1,24 @@
+{
+  "name": "GitHub Dev Container – Networking + Wayland Proxy + Sleep/Hibernation (C)",
+  "build": { "dockerfile": "Dockerfile" },
+  "runArgs": [
+    "--network=host",
+    "--privileged",
+    "--device=/dev/dri",
+    "--ipc=host"
+  ],
+  "forwardPorts": [8080],
+  "postCreateCommand": "rsync -a --delete /tmp/bootstrap/ /tmp/socket-bootstrap/ && gcc -O2 -pthread -o /usr/local/bin/dev-proxy main.c -Wall && /usr/local/bin/dev-proxy &",
+  "remoteEnv": {
+    "WAYLAND_DISPLAY": "wayland-proxy-0",
+    "XDG_RUNTIME_DIR": "/tmp"
+  },
+  "mounts": [
+    "source=/run/user/${localEnv:UID}/wayland-0,target=/tmp/host-wayland-0,type=bind,consistency=cached"
+  ],
+  "customizations": {
+    "vscode": {
+      "extensions": ["ms-vscode.cpptools"]
+    }
+  }
+}
