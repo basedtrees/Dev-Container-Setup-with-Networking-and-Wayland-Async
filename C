@@ -6,7 +6,7 @@
  # I lost the Lenovo T490 and went all the way to Colma station Target.
  # Outside, this old Army special force veteran was drinking lots of beer.
  # This place was like warehouse. Still, wasn't able to source computer. The
- # iPad Pro was on sale. 
+ # iPad Pro was on sale. So the following are inclusions: 
  * - Full host networking (--network=host + forwarded ports)
  * - Custom Wayland proxy (Unix-domain socket forwarding with async I/O)
  * - Sleep / hibernation state handling (via systemd signals and /sys/power monitoring)
